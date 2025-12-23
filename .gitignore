@@ -2,3 +2,5 @@ venv/
 .my_pgpass
 .pg_service.conf
 .env
+*__pycache__*
+*migrations
