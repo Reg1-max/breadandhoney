@@ -1,11 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from .forms import Quiz1Form, Quiz2Form
 from .models import Income, Outgoings
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Success! This is the budget app :)")
+    try:
+        budgetin = Income.objects.last()
+        budgetout = Outgoings.objects.last()
+    except (Income.DoesNotExist, Outgoings.DoesNotExist):
+        budgetin = False
+        budgetout = False
+    return render(request, "budget/index.html",{"budgetin":budgetin, "budgetout":budgetout})
 
 def quiz_1(request):
     if request.method == "POST":
@@ -39,4 +45,4 @@ def quiz_2(request):
     return render(request, "budget\quiz2.html", {"form":form2})
 
 def quiz_end(request):
-    return HttpResponse("Finished budget questionnaire")
+    return render(request, "budget\quizend.html")
