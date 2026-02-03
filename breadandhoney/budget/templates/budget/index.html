@@ -1,0 +1,24 @@
+{% if budgetin and budgetout %}
+    <h1>Your budget</h1>
+    Income: <br>
+    <ul>
+        <li>Salary: {{ budgetin.salary }}</li>
+        <li>Bonus: {{ budgetin.bonus }}</li>
+        <li>Other: {{ budgetin.other }}</li>
+    </ul>
+    <br>
+    Expenditure: <br>
+<ul>
+    <li>Accommodation: {{ budgetout.accom }}</li>
+    <li>Utilities: {{ budgetout.utilities }}</li>
+    <li>Travel: {{ budgetout.travel }}</li>
+    <li>Groceries: {{ budgetout.groceries }}</li>
+    <li>Entertainment: {{ budgetout.entertainment }}</li>
+    <li>Other: {{ budgetout.other }}</li>
+</ul>
+{% else %}
+    <h1>You do not have a budget</h1>
+    <form>
+  <button formaction="{% url 'budget-quiz-1' %}">Create a budget</button>
+</form>
+{% endif %}
