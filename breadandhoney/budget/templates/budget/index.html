@@ -6,6 +6,7 @@
         <li>Bonus: {{ budgetin.bonus }}</li>
         <li>Other: {{ budgetin.other }}</li>
     </ul>
+    <h3>Total income: {{ budgetin.total }}</h3>
     <br>
     Expenditure: <br>
 <ul>
@@ -16,6 +17,9 @@
     <li>Entertainment: {{ budgetout.entertainment }}</li>
     <li>Other: {{ budgetout.other }}</li>
 </ul>
+<h3>Total expenditure: {{ budgetout.total }}</h3>
+<br>
+<h2>Total left at the end of each month: {{ leftover }}</h2>
 {% else %}
     <h1>You do not have a budget</h1>
     <form>

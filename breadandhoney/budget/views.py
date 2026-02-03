@@ -8,10 +8,12 @@ def index(request):
     try:
         budgetin = Income.objects.last()
         budgetout = Outgoings.objects.last()
+        leftover = budgetin.total() - budgetout.total()
     except (Income.DoesNotExist, Outgoings.DoesNotExist):
         budgetin = False
         budgetout = False
-    return render(request, "budget/index.html",{"budgetin":budgetin, "budgetout":budgetout})
+        leftover = False
+    return render(request, "budget/index.html",{"budgetin":budgetin, "budgetout":budgetout, "leftover":leftover})
 
 def quiz_1(request):
     if request.method == "POST":
