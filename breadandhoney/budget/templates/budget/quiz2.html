@@ -4,7 +4,7 @@
     <title>Budget quiz</title>
 </head>
 <body>
-    <form action="{% url 'budget-quiz-2' %}" method="post">
+    <form action="{% url 'budget-quiz' %}" method="post">
         {% csrf_token %}
         {{ form }}
         <input type="submit">

@@ -10,6 +10,7 @@ cryptography==44.0.2
 cycler==0.12.1
 dill==0.4.0
 Django==6.0
+django-formtools==2.5.1
 fastjsonschema==2.21.1
 fonttools==4.57.0
 ibm-cloud-sdk-core==3.23.0

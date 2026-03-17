@@ -4,9 +4,10 @@
     <title>Budget quiz</title>
 </head>
 <body>
-    <form action="{% url 'budget-quiz-1' %}" method="post">
+    {{ wizard.management_form }}
+    <form action="{% url 'budget-quiz' %}" method="post">
         {% csrf_token %}
-        {{ form }}
+        {{ wizard.form }}
         <input type="submit">
     </form>
 </body>
