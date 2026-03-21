@@ -8,12 +8,13 @@ def index(request):
     try:
         budgetin = Income.objects.last()
         budgetout = Outgoings.objects.last()
-        leftover = budgetin.total() - budgetout.total()
         if budgetin == None and budgetout == None:
             budgetin = False
             budgetout = False
             leftover = False
-            return render(request, "budget/index.html",{"budgetin":budgetin, "budgetout":budgetout, "leftover":leftover})
+        else:
+            leftover = budgetin.total() - budgetout.total()
+        return render(request, "budget/index.html",{"budgetin":budgetin, "budgetout":budgetout, "leftover":leftover})
     except (Income.DoesNotExist, Outgoings.DoesNotExist):
         budgetin = False
         budgetout = False
