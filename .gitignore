@@ -1,7 +1,7 @@
 venv/
-.my_pgpass
-.pg_service.conf
-.env
+*.pg_service.conf*
+*.env*
 *__pycache__*
 *migrations
 *.pyc
+breadandhoney/.env

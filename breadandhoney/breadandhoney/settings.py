@@ -80,11 +80,9 @@ WSGI_APPLICATION = 'breadandhoney.wsgi.application'
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "django",
-        "USER": os.getenv("DJANGO_USER"),
-        "PASSWORD": os.getenv("PASSWORD"),
-        "HOST": "localhost",
-        "PORT": "5432",
+        "OPTIONS": {
+            "service": "mydb",
+        },
     }
 }
 
